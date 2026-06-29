@@ -36,4 +36,14 @@ describe("Pharmacy", () => {
       [new Drug("Magic Pill", 13, 23)],
     );
   });
+  it("should decrease the benefit and expiresIn", () => {
+    expect(new Pharmacy([new Drug("Dafalgan", 20, 30)]).updateBenefitValue()).toEqual(
+      [new Drug("Dafalgan", 19, 28)],
+    );
+  });
+  it("should decrease the benefit and expiresIn", () => {
+    expect(new Pharmacy([new Drug("Dafalgan", -1, 15)]).updateBenefitValue()).toEqual(
+      [new Drug("Dafalgan", -2, 11)],
+    );
+  });
 });
