@@ -46,6 +46,19 @@ const drugUpdateBenefitMap = {
   "Magic Pill": drug => {
     return drug;
   },
+  "Dafalgan" : drug => {
+    if (drug.benefit > 0) {
+      drug.benefit -= 2;
+    }
+    drug.expiresIn -= 1;
+    if (drug.expiresIn < 0 && drug.benefit > 0) {
+      drug.benefit -= 2;
+    }
+    if (drug.benefit < 0) {
+      drug.benefit = 0;
+    }
+    return drug;
+  }
 }
 
 export class Pharmacy {
